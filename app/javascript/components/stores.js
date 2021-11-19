@@ -9,7 +9,6 @@ const Stores = (props) => {
       return (
         <div>
           <h1>{store.name}</h1>
-          <p>{store.description}</p>
           <p><a href = {`/stores/${store.id}`}>View</a></p>
           <p><a href = {`/stores/${store.id}/edit`}>Edit Department</a></p>
         </div>
@@ -19,7 +18,7 @@ const Stores = (props) => {
 
   return (
   <div>
-    <a href = {`/stores/new`}>Join us!</a>
+    <a href = {`/stores/new`}>Create a New Department</a>
     <p>Departments Here: {renderStores()}</p>
   </div>
   );

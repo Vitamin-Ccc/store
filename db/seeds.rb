@@ -6,9 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Store.destroy_all
 
-stores = Store.create(
-  {name: 'Clothing', description: 'Women, Men, Kids'},
-  {name: 'Beauty', description: 'Fragrances, Makeup, Skin Care'},
-  {name: 'Accessories', description: 'Bags, Watches, Jewelry, Sunglasses'}
-  )
+Store.create(name: 'Clothing', description: 'Women, Men, Kids')
+Store.create(name: 'Beauty', description: 'Fragrances, Makeup, Skin Care')
+Store.create(name: 'Accessories', description: 'Bags, Watches, Jewelry, Sunglasses')
