@@ -1,4 +1,5 @@
 class StoresController < ApplicationController
+  before_action :set_store, only: [:show, :edit, :update, :destroy]
   
   #(R)ead
   def index
@@ -8,28 +9,30 @@ class StoresController < ApplicationController
     render component: "stores", props: {stores:@stores}
   end
 
+  #(C)reate
+  def new
+    # render new form
+    render component: "newStore"
+  end
+
+  def create
+    # create store(from from UI) to our db
+    # Store.create(name: params[:store][:name], description: params[:store][:description])
+    # Use a class method
+    store = Store.new(store_params)
+    # try to save it to DB
+    if (store.save)
+      redirect_to root_path
+    else
+
+    end
+  end
+
   def show
     @store = Store.find(params[:id])
     #find store and show it (1 store by id)
     # render store
     render component: "store", props: {store: @store}
-  end
-
-  #(C)reate
-  def new
-    # render new form
-    render component: "newStores"
-  end
-
-  def create
-    # create store(from from UI) to our db
-    Store.create(name: params[:store][:name], description: params[:store][:description])
-    redirect_to root_path
-  end
-
-
-  def stores_params
-    params.require(:store).permit(:name, :description)
   end
 
 
@@ -43,7 +46,7 @@ end
 # update takes values from form and updates the record
 def update
   @store = Store.find(params[:id])
-  if @store.update(stores_params)
+  if @store.update(store_params)
     # this will take us to our index method
     redirect_to root_path
   else
@@ -61,5 +64,14 @@ end
   end
 
 
+private
+
+def store_params
+  params.require(:store).permit(:name, :description)
+end
+
+def set_store
+  @store = Store.find(params[:id])
+end
 
 end

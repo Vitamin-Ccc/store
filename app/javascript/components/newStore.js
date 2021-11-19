@@ -1,7 +1,7 @@
 import React from "react";
 
 // A react component is just a function that return JSX - (html embed in js)
-const newStores = () => {
+const newStore = () => {
   return (
     <div>
       <h1>Create a New Department</h1>
@@ -18,4 +18,4 @@ const newStores = () => {
     </div>
   );
 };
-export default newStores;
+export default newStore;
