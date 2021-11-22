@@ -10,6 +10,7 @@ const Stores = (props) => {
         <div>
           <h1>{store.name}</h1>
           <p><a href = {`/stores/${store.id}`}>View</a></p>
+          <p><a href = {`/stores/${store.id}/items`}>Items Index</a></p>
           <p><a href = {`/stores/${store.id}/edit`}>Edit Department</a></p>
         </div>
       );
